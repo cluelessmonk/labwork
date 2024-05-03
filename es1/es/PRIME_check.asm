@@ -1,0 +1,15 @@
+ORG 0000H;
+MOV R1,#02H;
+check:MOV A,50H;
+	MOV B,R1;
+	DIV AB;
+	MOV A,B;
+	JZ notPrime;
+	INC R1;
+	MOV A,R1;
+	CJNE A,50H,check;
+	MOV 51H,#1;
+	SJMP $;
+notPrime: MOV 51H,#0;
+		SJMP $;
+		END;
